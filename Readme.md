@@ -1,4 +1,4 @@
-# CLR-GAN: Improving GANs Stability and Quality via Consistent Latent Representation and Reconstruction
+# CLR-GAN: Improving GANs Stability and Quality via Consistent Latent Representation and Reconstruction(ECCV24)
 ## Supplementary Material
 
 ### This folder contains all the codes that implements the **Consistent Latent Representation and Reconstruction** method on StyleGAN-V2 and StyleGAN-V2-ADA used for reproducing the experimental results reported on the paper.
