@@ -1,14 +1,21 @@
 # CLR-GAN: Improving GANs Stability and Quality via Consistent Latent Representation and Reconstruction(ECCV24)
+
+> CLR-GAN: Improving GANs Stability and Quality via Consistent Latent Representation and
+> Reconstruction  <br>
+> Shengke Sun, Ziqian Luan, Zhanshan Zhao, Shijie Luo and Shuzhen Han <br>
+> European Conference on Computer Vision ( **ECCV** ) 2024
+
 ## Supplementary Material
 
-### This folder contains all the codes that implements the **Consistent Latent Representation and Reconstruction** method on StyleGAN-V2 and StyleGAN-V2-ADA used for reproducing the experimental results reported on the paper.
+This folder contains all the codes that implements the **Consistent Latent Representation and Reconstruction** method on StyleGAN-V2 and StyleGAN-V2-ADA used for reproducing the experimental results reported on the paper.
 
 ### How to use this code:
+
 ## Preparing datasets
 
 Datasets are stored as uncompressed ZIP archives containing uncompressed PNG files and a metadata file `dataset.json` for labels.
 
-Custom datasets can be created from a folder containing images; see [`python dataset_tool.py --help`]for more information. Alternatively, the folder can also be used directly as a dataset, without running it through `dataset_tool.py` first, but doing so may lead to suboptimal performance.
+Custom datasets can be created from a folder containing images; see `python dataset_tool.py --help` for more information. Alternatively, the folder can also be used directly as a dataset, without running it through `dataset_tool.py` first, but doing so may lead to suboptimal performance.
 
 Legacy TFRecords datasets are not supported &mdash; see below for instructions on how to convert them.
 
@@ -40,7 +47,6 @@ python dataset_tool.py --source=/tmp/ffhq-unpacked --dest=~/datasets/ffhq256x256
     --width=256 --height=256 --resize-filter=box
 ```
 
-
 **AFHQ**: Download the [AFHQ dataset](https://github.com/clovaai/stargan-v2/blob/master/README.md#animal-faces-hq-dataset-afhq) and create ZIP archive:
 
 ```.bash
@@ -58,6 +64,7 @@ python dataset_tool.py --source=~/downloads/lsun/raw/cat_lmdb --dest=~/datasets/
 python dataset_tool.py --source=~/downloads/lsun/raw/car_lmdb --dest=~/datasets/lsuncar200k.zip \
     --transform=center-crop-wide --width=512 --height=384 --max_images=200000
 ```
+
 ## Training new networks
 
 In its most basic form, training new networks boils down to:
@@ -73,8 +80,8 @@ In this example, the results are saved to a newly created directory `~/training-
 
 The name of the output directory reflects the training configuration. For example, `00000-mydataset-auto1` indicates that the *base configuration* was `auto1`, meaning that the hyperparameters were selected automatically for training on one GPU. The base configuration is controlled by `--cfg`:
 
-| Base config           | Description                                                                                                                                                                    |
-| :-------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Base config             | Description                                                                                                                                                                    |
+| :---------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `auto`&nbsp;(default) | Automatically select reasonable defaults based on resolution and GPU count. Serves as a good starting point for new datasets but does not necessarily lead to optimal results. |
 | `paper256`            | Reproduce results for FFHQ and LSUN Church at 256x256 using 1, 2, 4, or 8 GPUs.                                                                                                |
 | `paper512`            | Reproduce results for AFHQ-Cat at 512x512 using 1, 2, 4, or 8 GPUs.                                                                                                            |
@@ -93,6 +100,22 @@ The training configuration can be further customized with additional command lin
 
 Please refer to [`python train.py --help`](./docs/train-help.txt) for the full list.
 
-
 ## About Copyright
+
 Due to the Anonymous policy of the ECCV review process, all the copyright information is removed to obey the Anonymous policy, and will be restored immediately after the review process ends.
+
+## Acknowledgement
+Thanks to [StyleGAN-ADA](https://github.com/NVlabs/stylegan2-ada-pytorch) for sharing the code.
+
+## BibTeX
+
+If you find our work helpful for your research, please consider to cite:
+
+```bibtex
+@inproceedings{sun2024clrgan,
+    title     = {CLR-GAN: Improving GANs Stability and Quality via Consistent Latent Representation and Reconstruction},
+    author    = {Sun, Shengke and Luan, Ziqian and Zhao, Zhanshan and Luo, Shijie and Han, Shuzhen},
+    booktitle = {European Conference on Computer Vision},
+    year      = {2024}
+}
+```
