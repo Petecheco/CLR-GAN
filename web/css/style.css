@@ -2,9 +2,15 @@ body {
     margin: 0;
     padding: 0;
     color: white;
-    background-color: black;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23909090' fill-opacity='0.42'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Roboto, Oxygen, Cantarell, "Fira Sans", "Liberation Sans", "Droid Sans", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.strong {
+    font-weight: bolder;
 }
 
 .c-pg {
@@ -23,7 +29,7 @@ body {
 }
 
 .c-p2 {
-    background-color: rgb(60, 60, 60);
+    background-color: transparent;
 }
 
 .c-p3 {
@@ -37,16 +43,25 @@ body {
 .c-p1-title {
     font-size: 120px;
     font-weight: bolder;
+    text-align: center;
 }
 
 .c-p1-abs {
     font-size: 30px;
     font-weight: lighter;
+    text-align: center;
 }
 
 .c-p1-acp {
     font-size: 20px;
     font-weight: lighter;
+    text-align: center;
+}
+
+.c-p1-aur {
+    font-size: 16px;
+    font-weight: lighter;
+    text-align: center;
 }
 
 .c-p1-gogh {
@@ -103,6 +118,7 @@ a {
 
 .c-p2-title {
     font-size: 40px;
+    margin-bottom: 10px;
 }
 
 .c-p3-title {
@@ -121,12 +137,13 @@ a {
 }
 
 .c-p2-info {
-    min-width: 400px;
+    min-width: 300px;
     max-width: 1200px;
     width: 75%;
     background-color: rgb(30, 30, 30);
     padding: 20px;
     margin-top: 20px;
+    font-size: 18px;
 }
 
 .c-p3-ct-col {
@@ -138,6 +155,105 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.c-p2-choose-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-p2-choose-item {
+    width: 220px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    margin: 5px;
+    cursor: pointer;
+    transition: border 0s, transform 0.4s, color 0.2s, font-weight 0.2s;
+    color: rgb(165, 165, 165);
+}
+
+.c-p2-choose-item:hover {
+    border: 2px solid rgb(205, 205, 205);
+    transform: scale(1.05);
+    color: rgb(205, 205, 205);
+}
+
+.c-p2-choose-item:active {
+    transform: scale(1.0);
+}
+
+.c-p2-choose-item-choosed {
+    width: 220px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    margin: 5px;
+    cursor: pointer;
+    transition: border 0s, transform 0.4s, color 0.2s, font-weight 0.2s;
+    color: rgb(220, 220, 220);
+    transform: scale(1.05);
+    font-weight: 600;
+}
+
+.c-p2-choose-item-choosed:hover {
+    border: 2px solid rgb(205, 205, 205);
+}
+
+.link {
+    text-decoration: underline;
+    color: #6eaff0;
+    cursor: pointer;
+}
+
+.c-p2-info {
+    max-height: 60vh;
+    overflow: auto;
+    transition-duration: 0.4s;
+}
+
+.c-table {
+    width: 100%;
+    text-align: left;
+    background-color: #2d2d2d;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@keyframes arrowNoti {
+    25% {
+        transform: translateX(-50%) translateY(0px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+    75% {
+        transform: translateX(-50%) translateY(0px);
+    }
+}
+
+.c-p1-scroll {
+    animation: arrowNoti 1s infinite;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    width: 50px;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.c-p1-scroll-arrow {
+    font-size: 40px !important;
+    color: #c2c2c2;
 }
 
 @media only screen and (max-width: 600px) {
@@ -154,8 +270,33 @@ a {
         text-align: center;
     }
 
+    .c-p1-aur {
+        font-size: 12px;
+    }
+
     .c-p1-acp {
         font-size: 12px;
         font-weight: lighter;
+    }
+
+    .c-p2-title {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .c-p2-choose-item-choosed, .c-p2-choose-item {
+        font-size: 14px;
+        width: 150px;
+    }
+
+    .c-p2-info {
+        font-size: 14px;
+    }
+    
+}
+
+@media (pointer: coarse) {
+    body {
+        overflow: auto;
     }
 }
