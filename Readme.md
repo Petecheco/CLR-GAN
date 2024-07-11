@@ -5,7 +5,7 @@
 > Shengke Sun, Ziqian Luan, Zhanshan Zhao, Shijie Luo and Shuzhen Han <br>
 > European Conference on Computer Vision ( **ECCV** ) 2024
 
-## ![sketchmap](.\figs\sketchmap.png)
+## ![sketchmap](figs\sketchmap.png)
 
 This folder contains all the codes that implements the **Consistent Latent Representation and Reconstruction** method on StyleGAN-V2 and StyleGAN-V2-ADA used for reproducing the experimental results reported on the paper.
 
