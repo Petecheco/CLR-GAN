@@ -5,7 +5,7 @@
 > Shengke Sun, Ziqian Luan, Zhanshan Zhao, Shijie Luo and Shuzhen Han <br>
 > European Conference on Computer Vision ( **ECCV** ) 2024
 
-## Supplementary Material
+## ![sketchmap](.\figs\sketchmap.png)
 
 This folder contains all the codes that implements the **Consistent Latent Representation and Reconstruction** method on StyleGAN-V2 and StyleGAN-V2-ADA used for reproducing the experimental results reported on the paper.
 
@@ -100,9 +100,19 @@ The training configuration can be further customized with additional command lin
 
 Please refer to [`python train.py --help`](./docs/train-help.txt) for the full list.
 
-## About Copyright
+## Model Repository
 
-Due to the Anonymous policy of the ECCV review process, all the copyright information is removed to obey the Anonymous policy, and will be restored immediately after the review process ends.
+The following table lists the pre-trained GAN model that be used to reproduce the experimental results listed in paper.
+
+| Model           | Link |
+| --------------- | ---- |
+| CIFAR-10        |      |
+| CelebA          |      |
+| AFHQ-Cat        |      |
+| LSUN-Church     |      |
+| ImageNet(64x64) |      |
+
+
 
 ## Acknowledgement
 Thanks to [StyleGAN-ADA](https://github.com/NVlabs/stylegan2-ada-pytorch) for sharing the code.
