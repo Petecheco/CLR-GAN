@@ -97,5 +97,5 @@ function showInfo(i) {
 }
 
 function hideInfo(i) {
-    cInfos[i].style = "opacity: 0; max-height: 0px; margin: 0px; padding: 0px;";
+    cInfos[i].style = "opacity: 0; max-height: 0px; margin: 0px; padding: 0px; filter: saturate(180%) blur(20px);";
 }

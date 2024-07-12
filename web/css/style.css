@@ -3,7 +3,8 @@ body {
     padding: 0;
     color: white;
     background-color: #000000;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23909090' fill-opacity='0.42'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("../img/frequency-wave-7776034.jpg");
+    background-size: cover;
     background-attachment: fixed;
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Roboto, Oxygen, Cantarell, "Fira Sans", "Liberation Sans", "Droid Sans", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -29,11 +30,12 @@ body {
 }
 
 .c-p2 {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .c-p3 {
-    background-color: rgb(40, 40, 40);
+    background-color: rgba(24, 26, 27, 0.9);
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 .c-p4 {
@@ -140,11 +142,19 @@ a {
     min-width: 300px;
     max-width: 1200px;
     width: 75%;
-    background-color: rgb(30, 30, 30);
-    padding: 20px;
+    background-color: rgba(24, 26, 27, 0.75);
+    backdrop-filter: saturate(180%) blur(20px);
+    padding: 30px;
     margin-top: 20px;
     font-size: 18px;
+    max-height: 60vh;
+    overflow: auto;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    scrollbar-width: none;
 }
+
+::-webkit-scrollbar { width: none; }
 
 .c-p3-ct-col {
     width: 50%;
@@ -211,12 +221,6 @@ a {
     text-decoration: underline;
     color: #6eaff0;
     cursor: pointer;
-}
-
-.c-p2-info {
-    max-height: 60vh;
-    overflow: auto;
-    transition-duration: 0.4s;
 }
 
 .c-table {
@@ -292,6 +296,8 @@ a {
     .c-p2-info {
         font-size: 14px;
     }
+
+    ::-webkit-scrollbar { width: auto; }
     
 }
 
@@ -299,4 +305,6 @@ a {
     body {
         overflow: auto;
     }
+    
+    ::-webkit-scrollbar { width: auto; }
 }

@@ -83,7 +83,7 @@ python dataset_tool.py --source=~/downloads/lsun/raw/car_lmdb --dest=~/datasets/
     --transform=center-crop-wide --width=512 --height=384 --max_images=200000</code>
 </pre>
             </div>
-            <div id="c-p2" class="c-p2-info" style="opacity: 0; max-height: 0px; margin: 0px; padding: 0px;">
+            <div id="c-p2" class="c-p2-info" style="opacity: 0; max-height: 0px; margin: 0px; padding: 0px; filter: saturate(180%) blur(20px);">
                 In its most basic form, training new networks boils down to:
 <pre>
 <code class="language-shell toolbar" data-prismjs-copy="Copy Code">python train.py --outdir=~/training-runs --data=~/mydataset.zip --gpus=1 --dry-run
