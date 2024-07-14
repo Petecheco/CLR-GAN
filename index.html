@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/prism.css">
+    <link rel="stylesheet" type="text/css" href="./css/prism-toolbar.min.css">
+    <link rel="stylesheet" type="text/css" href="./iconfont/iconfont.css">
+    <title>CLR-GAN</title>
+  </head>
+  <body>
+    <div class="c-pages">
+        <div class="c-pg c-p1">
+            <div class="c-p1-title">CLR-GAN</div>
+            <div class="c-p1-abs">Improving GANs Stability and Quality via Consistent Latent Representation and Reconstruction</div>
+            <div class="c-p1-acp">Accepted by European Conference on Computer Vision (ECCV) 2024</div>
+            <div class="c-p1-aur">Shengke Sun, Ziqian Luan, Zhanshan Zhao, Shijie Luo and Shuzhen Han</div>
+            <div class="c-p1-btnbox">
+                <a class="c-p1-gogh" href="https://github.com/Petecheco/CLR-GAN">
+                    <div class="c-p1-gogh-l">
+                        <img class="c-p1-gogh-l-img" src="./img/GitHub_Invertocat_Light.png" alt="github-icon">
+                    </div>
+                    <div class="c-p1-gogh-r">
+                        <div class="c-p1-gogh-r-text">See on</div>
+                        <div class="c-p1-gogh-r-text-b">Github</div>
+                    </div>
+                </a>
+            </div>
+            <div class="c-p1-scroll">
+                <text class="iconfont c-p1-scroll-arrow">&#xe830;</text>
+            </div>
+        </div>
+        <div class="c-pg c-p4">
+            <div class="c-p2-title">What is <span class="strong">CLR-GAN</span>?</div>
+            <div class="c-p4-imgbox">
+                <div class="c-p4-imgdiv">
+                    <img class="c-p4-img" src="./img/sketchmap.png" alt="sketchmap">
+                </div>
+                <div class="c-p4-imgdsc">
+                    Generative Adversarial Networks(GANs) have received considerable attention due to its outstanding ability to generate images. <br>
+                    <div class="empty-10px"></div>
+                    However, training a GAN is hard since the game between the Generator(G) and the Discriminator(D) is unfair. <br>
+                    <div class="empty-10px"></div>
+                    Towards making the competition fairer, we propose a new perspective of training GANs, named
+                    Consistent Latent Representation and Reconstruction(CLR-GAN). <br>
+                    <div class="empty-10px"></div>
+                    In this paradigm, we treat the G and D as an inverse process, the
+                    discriminator has an additional task to restore the pre-defined latent code
+                    while the generator also needs to reconstruct the real input, 
+                    thus obtaining a relationship between the latent space of G and the out-features of D. <br>
+                    <div class="empty-10px"></div>
+                    Based on this prior, we can put D and G on an equal position during
+                    training using a new criterion. Experimental results on various datasets
+                    and architectures prove our paradigm can make GANs more stable and
+                    generate better quality images.
+                </div>
+            </div>
+        </div>
+        <div class="c-pg c-p2">
+            <div class="c-p2-title">Usage of <span class="strong">CLR-GAN</span> Code</div>
+            <div class="c-p2-choose-box">
+                <div id="c0" class="c-p2-choose-item-choosed">Preparing datasets</div>
+                <div id="c1" class="c-p2-choose-item">Training new networks</div>
+            </div>
+            <div id="cp1" class="c-p2-info">
+                Datasets are stored as uncompressed ZIP archives containing uncompressed PNG files 
+                and a metadata file <code class="language-shell">dataset.json</code> for labels. <br>
+                Custom datasets can be created from a folder containing images; 
+                see <code class="language-shell">python dataset_tool.py --help</code> for more information. 
+                Alternatively, the folder can also be used directly as a dataset, 
+                without running it through <code class="language-shell">dataset_tool.py</code> first, but doing so may lead 
+                to suboptimal performance. <br>
+                Legacy TFRecords datasets are not supported — see below for instructions on how to convert them.<br>
+                <span class="strong">FFHQ:</span><br>
+                Step 1: Download the <a class="link" href="https://github.com/NVlabs/ffhq-dataset">Flickr-Faces-HQ dataset</a> as TFRecords. <br>
+                Step 2: Extract images from TFRecords using <code class="language-shell">dataset_tool.py</code> from the <a class="link" href="https://github.com/NVlabs/stylegan2-ada/">TensorFlow version of StyleGAN2-ADA</a>: <br>
+<pre>
+<code class="language-shell toolbar" data-prismjs-copy="Copy Code"># Using dataset_tool.py from TensorFlow version at
+# https://github.com/NVlabs/stylegan2-ada/
+python ../stylegan2-ada/dataset_tool.py unpack \
+    --tfrecord_dir=~/ffhq-dataset/tfrecords/ffhq --output_dir=/tmp/ffhq-unpacked</code>
+</pre>
+                Step 3: Create ZIP archive using dataset_tool.py from this repository:
+<pre>
+<code class="language-shell toolbar" data-prismjs-copy="Copy Code"># Original 1024x1024 resolution.
+python dataset_tool.py --source=/tmp/ffhq-unpacked --dest=~/datasets/ffhq.zip
+
+# Scaled down 256x256 resolution.
+#
+# Note: --resize-filter=box is required to reproduce FID scores shown in the
+# paper.  If you don't need to match exactly, it's better to leave this out
+# and default to Lanczos.  See https://github.com/NVlabs/stylegan2-ada-pytorch/issues/283#issuecomment-1731217782
+python dataset_tool.py --source=/tmp/ffhq-unpacked --dest=~/datasets/ffhq256x256.zip \ 
+    --width=256 --height=256 --resize-filter=box</code>
+</pre>
+                <span class="strong">AFHQ:</span> Download the AFHQ dataset and create ZIP archive:<br>
+<pre>
+<code class="language-shell toolbar" data-prismjs-copy="Copy Code">python dataset_tool.py --source=~/downloads/afhq/train/cat --dest=~/datasets/afhqcat.zip
+python dataset_tool.py --source=~/downloads/afhq/train/dog --dest=~/datasets/afhqdog.zip
+python dataset_tool.py --source=~/downloads/afhq/train/wild --dest=~/datasets/afhqwild.zip</code>
+</pre>
+                <span class="strong">LSUN:</span> Download the desired categories from the LSUN project page and convert to ZIP archive:<br>
+<pre>
+<code class="language-shell toolbar" data-prismjs-copy="Copy Code">python dataset_tool.py --source=~/downloads/lsun/raw/cat_lmdb --dest=~/datasets/lsuncat200k.zip \
+    --transform=center-crop --width=256 --height=256 --max_images=200000
+
+python dataset_tool.py --source=~/downloads/lsun/raw/car_lmdb --dest=~/datasets/lsuncar200k.zip \
+    --transform=center-crop-wide --width=512 --height=384 --max_images=200000</code>
+</pre>
+            </div>
+            <div id="c-p2" class="c-p2-info" style="opacity: 0; max-height: 0px; margin: 0px; padding: 0px; filter: saturate(180%) blur(20px);">
+                In its most basic form, training new networks boils down to:
+<pre>
+<code class="language-shell toolbar" data-prismjs-copy="Copy Code">python train.py --outdir=~/training-runs --data=~/mydataset.zip --gpus=1 --dry-run
+python train.py --outdir=~/training-runs --data=~/mydataset.zip --gpus=1</code>
+</pre>
+                The first command is optional; it validates the arguments, prints out the training configuration, and exits. 
+                The second command kicks off the actual training. <br>
+                In this example, the results are saved to a newly created directory <code class="language-shell">~/training-runs/&lt;ID&gt;-mydataset-auto1</code>
+                , controlled by <code class="language-shell">--outdir</code>. The training exports network pickles (<code class="language-shell">network-snapshot-&lt;INT&gt;.pkl</code>) 
+                and example images (<code class="language-shell">fakes&lt;INT&gt;.png</code>) at regular intervals 
+                (controlled by <code class="language-shell">--snap</code>). For each pickle, it also evaluates FID (controlled by <code class="language-shell">--metrics</code>) 
+                and logs the resulting scores in <code class="language-shell">metric-fid50k_full.jsonl</code> (as well as TFEvents if TensorBoard is installed).<br>
+                The name of the output directory reflects the training configuration. For example, <code class="language-shell">00000-mydataset-auto1</code> 
+                indicates that the base configuration was <code class="language-shell">auto1</code>, 
+                meaning that the hyperparameters were selected automatically for training on one GPU. 
+                The base configuration is controlled by <code class="language-shell">--cfg</code>:
+            
+                <table class="c-table">
+                    <thead>
+                      <tr>
+                        <th>Base config</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code class="language-shell">auto</code> (default)</td>
+                        <td>Automatically select reasonable defaults based on resolution and GPU count. 
+                            Serves as a good starting point for new datasets but does not necessarily lead to optimal results.</td>
+                      </tr>
+                      <tr>
+                        <td><code class="language-shell">paper256</code></td>
+                        <td>Reproduce results for FFHQ and LSUN Church at 256x256 using 1, 2, 4, or 8 GPUs.</td>
+                      </tr>
+                      <tr>
+                        <td><code class="language-shell">paper512</code></td>
+                        <td>Reproduce results for AFHQ-Cat at 512x512 using 1, 2, 4, or 8 GPUs.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                The training configuration can be further customized with additional command line options:<br>
+                <ul>
+                <li><code class="language-shell">--aug=noaug</code> disables ADA.</li>
+                <li><code class="language-shell">--cond=1</code> enables class-conditional training (requires a dataset with labels).</li>
+                <li><code class="language-shell">--mirror=1</code> amplifies the dataset with x-flips. Often beneficial, even with ADA.</li>
+                <li><code class="language-shell">--resume=ffhq1024 --snap=10</code> performs transfer learning from FFHQ trained at 1024x1024.</li>
+                <li><code class="language-shell">--resume=~/training-runs/&lt;NAME&gt;/network-snapshot-&lt;INT&gt;.pkl</code> resumes a previous training run.</li>
+                <li><code class="language-shell">--gamma=10</code> overrides R1 gamma. We recommend trying a couple of different values for each new dataset.</li>
+                <li><code class="language-shell">--aug=ada --target=0.7</code> adjusts ADA target value (default: 0.6).</li>
+                <li><code class="language-shell">--augpipe=blit</code> enables pixel blitting but disables all other augmentations.</li>
+                <li><code class="language-shell">--augpipe=bgcfnc</code> enables all available augmentations (blit, geom, color, filter, noise, cutout).</li>
+                </ul>
+                Please refer to <a class="link" href="https://github.com/Petecheco/CLR-GAN/blob/main/docs/train-help.txt"><code class="language-shell">python train.py --help</code></a> 
+                for the full list.
+            </div>
+            
+        </div>
+        <div class="c-pg c-p3">
+            <div class="c-p3-title">ABOUT</div>
+            <div class="c-p3-ct-box">
+                <div class="c-p3-ct-col">
+                    <div class="c-p3-ct-row">Shengke Sun</div>
+                    <div class="c-p3-ct-row">Ziqian Luan</div>
+                    <div class="c-p3-ct-row">Zhanshan Zhao</div>
+                    <div class="c-p3-ct-row">Shijie Luo</div>
+                    <div class="c-p3-ct-row">Shuzhen Han</div>
+                </div>
+                <div class="c-p3-ct-col">
+                    <div class="c-p3-ct-row">Contact</div>
+                    <div class="c-p3-ct-row">Contact</div>
+                    <div class="c-p3-ct-row">Contact</div>
+                    <div class="c-p3-ct-row">Contact</div>
+                    <div class="c-p3-ct-row">Contact</div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+  <script src="./js/index.js"></script>
+  <script src="./js/prism.js"></script>
+  <script src="./js/prism-toolbar.min.js"></script>
+  <script src="./js/prism-copy-to-clipboard.min.js"></script>
+  <script src="./iconfont/iconfont.js"></script>
+</html>
