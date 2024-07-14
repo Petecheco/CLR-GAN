@@ -31,6 +31,32 @@
                 <text class="iconfont c-p1-scroll-arrow">&#xe830;</text>
             </div>
         </div>
+        <div class="c-pg c-p4">
+            <div class="c-p2-title">What is <span class="strong">CLR-GAN</span>?</div>
+            <div class="c-p4-imgbox">
+                <div class="c-p4-imgdiv">
+                    <img class="c-p4-img" src="./img/sketchmap.png" alt="sketchmap">
+                </div>
+                <div class="c-p4-imgdsc">
+                    Generative Adversarial Networks(GANs) have received considerable attention due to its outstanding ability to generate images. <br>
+                    <div class="empty-10px"></div>
+                    However, training a GAN is hard since the game between the Generator(G) and the Discriminator(D) is unfair. <br>
+                    <div class="empty-10px"></div>
+                    Towards making the competition fairer, we propose a new perspective of training GANs, named
+                    Consistent Latent Representation and Reconstruction(CLR-GAN). <br>
+                    <div class="empty-10px"></div>
+                    In this paradigm, we treat the G and D as an inverse process, the
+                    discriminator has an additional task to restore the pre-defined latent code
+                    while the generator also needs to reconstruct the real input, 
+                    thus obtaining a relationship between the latent space of G and the out-features of D. <br>
+                    <div class="empty-10px"></div>
+                    Based on this prior, we can put D and G on an equal position during
+                    training using a new criterion. Experimental results on various datasets
+                    and architectures prove our paradigm can make GANs more stable and
+                    generate better quality images.
+                </div>
+            </div>
+        </div>
         <div class="c-pg c-p2">
             <div class="c-p2-title">Usage of <span class="strong">CLR-GAN</span> Code</div>
             <div class="c-p2-choose-box">

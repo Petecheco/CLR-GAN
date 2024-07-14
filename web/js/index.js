@@ -1,5 +1,5 @@
 let curPage = 0;
-let totalPages = 2;
+let totalPages = 3;
 let bCanScroll = true;
 
 let scrollEvent = 0;
@@ -22,27 +22,37 @@ var scrollFunc = function (e) {
         else {
             scrollUp();
         }
-        setTimeout("bCanScroll = true;", 400)
+        setTimeout("bCanScroll = true;", 500)
     }
 }
 
 function scrollDown() {
     if (curPage < totalPages) {
         ++curPage;
-        scrollTo({
-            top: document.getElementsByClassName("c-pg")[0].clientHeight * curPage,
+        let topHeight = document.getElementsByClassName("c-pg")[0].clientHeight * curPage
+        scroll({
+            top: topHeight,
             behavior: "smooth"
         });
+        if (curPage == totalPages) {
+            document.getElementsByClassName("c-p1-scroll-arrow")[0].innerHTML = '&#xe868;';
+            document.getElementsByClassName("c-p1-scroll")[0].style = 'animation: none;';
+        }
     }
 }
 
 function scrollUp() {
     if (curPage > 0) {
         --curPage;
-        scrollTo({
-            top: document.getElementsByClassName("c-pg")[0].clientHeight * curPage,
+        let topHeight = document.getElementsByClassName("c-pg")[0].clientHeight * curPage
+        scroll({
+            top: topHeight,
             behavior: "smooth"
         });
+        if (curPage == totalPages - 1) {
+            document.getElementsByClassName("c-p1-scroll-arrow")[0].innerHTML = '&#xe830;';
+            document.getElementsByClassName("c-p1-scroll")[0].style = '';
+        }
     }
 }
 

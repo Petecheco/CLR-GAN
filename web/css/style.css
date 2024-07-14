@@ -6,7 +6,7 @@ body {
     background-image: url("../img/frequency-wave-7776034.jpg");
     background-size: cover;
     background-attachment: fixed;
-    overflow: hidden;
+    overflow-y: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Roboto, Oxygen, Cantarell, "Fira Sans", "Liberation Sans", "Droid Sans", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
@@ -39,7 +39,8 @@ body {
 }
 
 .c-p4 {
-    background-color: rgb(25, 25, 25);
+    background-color: rgba(25, 25, 25, 0.75);
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 .c-p1-title {
@@ -233,6 +234,48 @@ a {
     margin-bottom: 10px;
 }
 
+.c-p4-imgbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 400px;
+    max-width: 1200px;
+    width: 75%;
+}
+
+.empty-10px {
+    width: 100%;
+    height: 10px;
+}
+
+.c-p4-imgdsc {
+    width: 50%;
+    padding: 20px;
+    font-size: 16px;
+    text-align: justify;
+    transition-duration: 0.4s;
+}
+
+.c-p4-imgdsc:hover {
+    background-color: #191b1f;
+    border-radius: 20px;
+    transform: scale(1.3) translateX(-50px);
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+}
+
+.c-p4-imgdiv {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-p4-img {
+    width: 100%;
+    object-fit: cover;
+}
+
 @keyframes arrowNoti {
     25% {
         transform: translateX(-50%) translateY(0px);
@@ -247,7 +290,8 @@ a {
 
 .c-p1-scroll {
     animation: arrowNoti 1s infinite;
-    position: absolute;
+    position: fixed;
+    z-index: 999;
     left: 50%;
     bottom: 50px;
     width: 50px;
@@ -297,14 +341,58 @@ a {
         font-size: 14px;
     }
 
+    .c-p4-imgdsc {
+        font-size: 14px;
+    }
+
+    .c-p4-imgdsc:hover {
+        background-color: transparent;
+        border-radius: 0px;
+        transform: scale(1.0) translateX(0px);
+        box-shadow: none;
+    }
+
+    .c-p4-imgdsc {
+        width: 100%;
+        height: 60%;
+        padding: 10px 40px 0 40px;
+        box-sizing: border-box;
+    }
+
+    .c-p4-imgdiv {
+        width: 100%;
+        height: 40%;
+    }
+
+    .c-p4-imgbox {
+        flex-direction: column;
+    }
+
     ::-webkit-scrollbar { width: auto; }
     
 }
 
 @media (pointer: coarse) {
     body {
-        overflow: auto;
+        overflow-y: hidden;
     }
     
-    ::-webkit-scrollbar { width: auto; }
+    ::-webkit-scrollbar { width: none; }
+
+    .c-pages {
+        scroll-snap-type: y mandatory;
+        height: 100vh;
+        padding: 0;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+    
+    .c-pages > div {
+        scroll-snap-align: center;
+    }
+
+    .c-p1-scroll {
+        position: fixed;
+        z-index: 0;
+    }
 }
