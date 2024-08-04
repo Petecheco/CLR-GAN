@@ -104,13 +104,13 @@ Please refer to [`python train.py --help`](./docs/train-help.txt) for the full l
 
 The following table lists the pre-trained GAN model that be used to reproduce the experimental results listed in paper.
 
-| Model           | Link |
-| --------------- | ---- |
-| CIFAR-10        |      |
-| CelebA          |      |
-| AFHQ-Cat        |      |
-| LSUN-Church     |      |
-| ImageNet(64x64) |      |
+| Model           | Link                                                         |
+| --------------- | ------------------------------------------------------------ |
+| CIFAR-10        | [Google Drive](https://drive.google.com/drive/folders/1oWX_c6OyRA7WPPxCP1s9I_5AGlw9-SMy?usp=drive_link) |
+| CelebA          | [Google Drive](https://drive.google.com/drive/folders/1oWX_c6OyRA7WPPxCP1s9I_5AGlw9-SMy?usp=drive_link) |
+| AFHQ-Cat        | [Google Drive](https://drive.google.com/drive/folders/1oWX_c6OyRA7WPPxCP1s9I_5AGlw9-SMy?usp=drive_link) |
+| LSUN-Church     | [Google Drive](https://drive.google.com/drive/folders/1oWX_c6OyRA7WPPxCP1s9I_5AGlw9-SMy?usp=drive_link) |
+| ImageNet(64x64) | [Google Drive](https://drive.google.com/drive/folders/1oWX_c6OyRA7WPPxCP1s9I_5AGlw9-SMy?usp=drive_link) |
 
 
 
