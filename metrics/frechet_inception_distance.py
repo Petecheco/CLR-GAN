@@ -1,4 +1,10 @@
-﻿# Copyright information has been removed due to Anonymous policy and will be restored after the review process
+﻿# Copyright (c) 2021, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
 
 """Frechet Inception Distance (FID) from the paper
 "GANs trained by a two time-scale update rule converge to a local Nash
